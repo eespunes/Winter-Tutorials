@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Create Challenge</title>
+</head>
+<body>
+<br>
+<br>
+<div th:replace="fragment/header :: header"></div>
+<br>
+<br>
+<div align="center">
+
+    <h1>Challenge creator</h1>
+
+    <form method="POST" th:object="${challenge}">
+        <div align="left" class="errors" th:if="${#fields.hasErrors('*')}">
+            <ul>
+                <li th:each="err : ${#fields.errors('*')}"
+                    th:text="${err}">Input is incorrect
+                </li>
+            </ul>
+        </div>
+
+        <table>
+            <tr>
+                <td><label th:class="${#fields.hasErrors('title')}? 'error'">Title</label>:</td>
+                <td><input type="text" th:field="*{title}"
+                           th:class="${#fields.hasErrors('title')}? 'error'"/></td>
+            </tr>
+            <tr>
+                <td><label th:class="${#fields.hasErrors('description')}? 'error'">Description</label>:</td>
+                <td><textarea name="description" rows="8" cols="64" minlength="2" maxlength="2048"/></textarea></td>
+            </tr>
+        </table>
+
+        <input type="submit" value="Create challenge"/>
+
+
+    </form>
+</div>
+</body>
+</html>

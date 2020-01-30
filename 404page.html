@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Error: Page not found </title>
+</head>
+<body>
+<br>
+<br>
+<h1>Error: the page can't be found on: <span th:text="${where}">where</span></h1>
+<h1>Please conctat whit support to fix this problem</span></h1>
+</body>
+<error-page>
+    <error-code>404</error-code>
+    <location>/index.jsp</location>
+</error-page>
+</html>

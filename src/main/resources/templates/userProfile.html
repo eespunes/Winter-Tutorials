@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8"/>
+    <title>User Profile</title>
+</head>
+<body>
+<br>
+<br>
+<div th:replace="fragment/header :: header"></div>
+<br>
+<br>
+    <h1><span th:text="${user.username}"></span></h1>
+    <h2><span th:text="${user.firstName.toUpperCase()+' '+user.lastName.toUpperCase()}"></span></h2>
+    <div>email: <span th:text="${user.email}"></span></div>
+    <div>birthday: <span th:text="${user.birthday}"></span></div>
+    <div>experience points: <span th:text="${user.experiencePoints}"></span></div>
+    <div>level <span th:text="${user.level}"></span></div>
+</body>
+</html>

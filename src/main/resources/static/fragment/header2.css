@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'quicksandbold';
+    src: url('quicksand_bold-webfont.woff2') format('woff2'),
+    url('quicksand_bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+div nav a {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    line-height: normal;
+    font-family: "quicksandbold";
+    margin-top: 5px;
+    font-size: 25px;
+    font-weight: bold;
+    -webkit-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+
+div nav a:hover {
+    color: #0a79f2;
+}

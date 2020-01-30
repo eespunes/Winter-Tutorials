@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Creator Exercise (Fill the Gap)</title>
+</head>
+
+<body style="background-color: #e3f2fd">
+<div th:replace="fragment/header :: header"></div>
+<form class="needs-validation" novalidate method="post" th:object="${fillTheGapExercise}">
+    <div class="container" style="padding-left: 2%; padding-right: 2%; padding-top: 100px;" align="center">
+        <div class="jumbotron shadow p-3 mb-5" style="padding-top: 100px">
+            <div class="form-row">
+                <div class="col-md-12">
+                    <h3>Exercise Creator (Fill the Gap)</h3>
+                </div>
+            </div>
+            <div class="form-row" align="center">
+                <div class="col-md-6">
+                    <label for="validationDefault01">Articulation</label>
+                    <textarea name="description" class="form-control" id="validationDefault01"
+                              placeholder="Articulation" required rows="8" cols="64" minlength="5"
+                              maxlength="1024" th:field="*{description}"/></textarea>
+                    <div class="valid-tooltip">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label for="validationDefault02">Difficulty</label>
+                    <input type="number" min="1" max="5" class="form-control" id="validationDefault02"
+                           th:field="*{difficulty}"/>
+                    <div class="valid-tooltip">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label for="validationDefault03">Experience Points</label>
+                    <input type="number" min="0" max="9999" class="form-control" id="validationDefault03"
+                           th:field="*{experience_points}"/>
+                    <div class="valid-tooltip">
+                        Looks good!
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row  jumbotron shadow p-3 mb-5" align="center">
+            <div class="form-row">
+                <div class="col-md-12" align="center">
+                    <a href="#exercise" class="btn btn-info"
+                       data-toggle="collapse">Exercise Info</a>
+                    <div id="exercise" align="left" class="row collapse">
+                        <p class="lead">
+                            In order to create a "Fill the blank" exercise type, you should enter all the text(with the solution included) and surround the solution by a #R #/R block.<br />
+                            Example: In Java, the variable type that only has two possible values is a #Rboolean#/R.<br />
+                            Being "boolean" the word that the users must put on the gap to complete the exercise.<br />
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-8" align="center">
+                    <label for="validationDefault04">Exercise</label>
+                    <textarea th:name="questions" class="form-control" id="validationDefault04"
+                              placeholder="Test Exercise" required rows="20" cols="150" minlength="5"
+                              maxlength="9000"></textarea>
+                    <div class="valid-tooltip">
+                        Looks good!
+                    </div>
+                </div>
+            </div>
+            <div class="form-row" align="center">
+                <div class="col-md-12 btn-group">
+                    <button class="btn btn-primary" type="submit" name="end" value="Add More Exercises"/>
+                    Add More Exercises</button>
+                    <button class="btn btn-primary" type="submit" name="end" value="Finish"/>
+                    Finish</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
+
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+</body>
+</html>

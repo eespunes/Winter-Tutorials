@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Tutorials</title>
+</head>
+<body style="background-color: #e3f2fd">
+<div th:replace="fragment/header :: header"></div>
+<div class="container-fluid scrollbar scrollbar-primary" style="padding-right: 2%; padding-top: 100px;">
+    <div class="row" align="center">
+        <div class="col-md-12">
+            <h1 align="center">Tutorials</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2" align="center">
+            <div th:replace="fragment/search-Tutorial :: search-Tutorial"></div>
+        </div>
+        <ul class="col-md-8" id="tutorials">
+            <h3 th:if="${tutorialList.size()==0}">No Tutorials Found</h3>
+            <li class="row jumbotron shadow p-3 mb-5" style=" background-color: #ffffff"
+                 th:each="tutorial : ${tutorialList}">
+                <div class="col-md-8">
+                    <h4 th:text="${tutorial.title}" th:id="${tutorial.title}">Title</h4>
+                </div>
+                <div class="col-md-2">
+                    <a class="btn btn-outline-success" th:href="@{'/tutorial/' + ${tutorial.postID}}">GO</a>
+                </div>
+                <div class="col-md-2" align="right" style="border-left: 2px solid #e3f2fd">
+                    <p class="lead" th:text="${tutorial.category}"></p>
+                </div>
+            </li>
+        </ul>
+        <div class="col-md-2" align="center">
+            <p th:if="${#authentication.name=='anonymousUser'}">If you want to create a tutorial, please</p>
+            <a th:if="${#authentication.name=='anonymousUser'}" href="/login"
+               class="btn btn-info">LOGIN</a>
+            <input th:unless="${#authentication.name=='anonymousUser'}" class="btn btn-warning shadow p-1 mb-5" type="button" value="Create New Tutorial"
+                   onclick="window.location.href='/tutorial/create' ">
+        </div>
+    </div>
+</div>
+</body>
+</html>

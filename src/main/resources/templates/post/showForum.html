@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Forum</title>
+</head>
+<body style="background-color: #e3f2fd">
+<div th:replace="fragment/header :: header"></div>
+<div class="container-fluid scrollbar scrollbar-primary" style="padding-right: 2%; padding-top: 100px;">
+    <div class="row" align="center">
+        <div class="col-md-12">
+            <h1 align="center">Questions</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2" align="center">
+            <div th:replace="fragment/search-Forum :: search-Forum"></div>
+        </div>
+        <div class="col-md-8">
+            <h3 th:if="${discussions.size()==0}">No Questions Found</h3>
+            <ul id="forum">
+                <li class="row jumbotron shadow p-3 mb-5" style=" background-color: #ffffff"
+                    th:each="discussion : ${discussions}">
+                    <div class="col-md-8">
+                        <h4 th:text="${discussion.title}" th:id="${discussion.title}">Title</h4>
+                    </div>
+                    <div class="col-md-2">
+                        <a class="btn btn-outline-success"
+                           th:href="@{'/forum/discussion/' + ${discussion.postID}}">GO</a>
+                    </div>
+                    <div class="col-md-2" align="right" style="border-left: 2px solid #e3f2fd">
+                        <p class="lead" th:text="${discussion.category}"></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-2" align="center">
+            <p th:if="${#authentication.name=='anonymousUser'}">If you want to create a question, please</p>
+            <a th:if="${#authentication.name=='anonymousUser'}" href="/login"
+               class="btn btn-info">LOGIN</a>
+            <input th:unless="${#authentication.name=='anonymousUser'}" class="btn btn-warning shadow p-1 mb-5" type="button" value="Create New Question"
+                   onclick="window.location.href='create/discussion' ">
+        </div>
+    </div>
+</div>
+</body>
+</html>

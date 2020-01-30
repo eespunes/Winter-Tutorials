@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Challenges</title>
+</head>
+</head>
+<body style="background-color: #e3f2fd">
+<div th:replace="fragment/header :: header"></div>
+<div class="container-fluid scrollbar scrollbar-primary" style="padding-right: 2%; padding-top: 100px;">
+    <div class="row" align="center">
+        <div class="col-md-12">
+            <h1 align="center">Challenges</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2" align="center">
+            <div th:replace="fragment/search-Challenge :: search-Challenge"></div>
+        </div>
+        <ul class="col-md-8" id="challenges">
+            <li class="row jumbotron shadow p-3 mb-5" style=" background-color: #ffffff"
+                th:each="challenge : ${challengesList}">
+                <div class="col-md-8">
+                    <h4 th:text="${challenge.title}" th:id="${challenge.title}">Title</h4>
+                </div>
+                <div class="col-md-2">
+                    <a th:if="${#authentication.name=='anonymousUser'}" href="/login"
+                       class="btn btn-info">LOGIN</a>
+                    <a th:unless="${#authentication.name=='anonymousUser'}" class="btn btn-outline-success" th:href="@{'/challenge/do/' + ${challenge.postID}}" th:id="${challenge.title}">Try It</a>
+                </div>
+                <div class="col-md-2" align="right" style="border-left: 2px solid #e3f2fd">
+                    <span class="text-info">★</span>
+                    <span th:if="${challenge.description=='2' or challenge.description=='3' or challenge.description=='4' or challenge.description=='5'}" class="text-info">★</span>
+                    <span th:unless="${challenge.description=='2' or challenge.description=='3' or challenge.description=='4' or challenge.description=='5'}">☆</span>
+                    <span th:if="${challenge.description=='3' or challenge.description=='4' or challenge.description=='5'}" class="text-info">★</span>
+                    <span th:unless="${challenge.description=='3' or challenge.description=='4' or challenge.description=='5'}">☆</span>
+                    <span th:if="${challenge.description=='4' or challenge.description=='5'}" class="text-info">★</span>
+                    <span th:unless="${challenge.description=='4' or challenge.description=='5'}">☆</span>
+                    <span th:if="${challenge.description=='5'}" class="text-info">★</span>
+                    <span th:unless="${challenge.description=='5'}">☆</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

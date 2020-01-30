@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{../table.css}"/>
+    <link href="../../fragment/header2.css" rel="stylesheet" type="text/css">
+    <title>Weather Api</title>
+</head>
+<body>
+    <div class="float-md-left" id="openweathermap-widget-15"></div>
+    <script>
+        window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
+        window.myWidgetParam.push({
+            id: 15,
+            cityid: '3128760',
+            appid: '742bf5820f2530a3a241e7fde16148fe',
+            units: 'metric',
+            containerid: 'openweathermap-widget-15'});
+        (function() {
+            var script = document.createElement('script');
+            script.async = true;
+            script.charset = "utf-8";
+            script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(script, s);
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+header {
+    /* we post the image ocupling the full page in a dark tone */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("icons/code-image.jpeg");
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+body {
+    font-family: monospace;
+}
+.hero {
+    position: absolute;
+    width: 900px;
+    height: 500px;
+    margin-top: 250px;
+    margin-left: 500px;
+    font-family: "Reboto", sans-serif;
+}
+h1 {
+    color: white;
+    text-transform: uppercase;
+    font-size: 50px;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.login {
+    text-align: center;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+.lgn {
+    border: 1px solid white;
+    padding: 10px 30px;
+    color: black;
+    text-decoration: none;
+    margin-bottom: 25px;
+    font-size: 15px;
+}
+.lgn:hover {
+    background-color: darkorange;
+    transition: all 0.5s ease-in;
+}
+.login-name {
+    font-family: "Reboto", sans-serif;
+}
+textarea {
+    height: 10px;
+}
+input, textarea {
+    font-size: 15px;
+    padding: 15px 50px 10px 10px;
+    border: 1px solid #cecece;
+    background-color: #efefef;
+    outline: none;
+}
+.button {
+    /* buttons position */
+    margin-top: 25px;
+}
+.btn {
+    /* these are the chatacteristics of both buttons (it can not do in the same place that .button) */
+    border: 1px solid white;
+    padding: 10px 40px;
+    color: white;
+    text-decoration: none;
+    margin-right: 5px;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+.button-one {
+    background-color: darkorange;
+    font-family: "Reboto", sans-serif;
+}
+.button-two {
+    font-family: "Reboto", sans-serif;
+}
+.button-two:hover {
+    /* this hover effect makes that when mouse is over the button it change the color to darkorange*/
+    background-color: darkorange;
+    transition: all 0.5s ease-in;
+}

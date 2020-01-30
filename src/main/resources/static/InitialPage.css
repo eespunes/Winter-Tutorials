@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+header {
+    /* we post the image ocupling the full page in a dark tone */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("icons/code-image.jpeg");
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+body {
+    font-family: monospace;
+}
+.row {
+    /* changing the width of the row (changes all inside de div)
+       the max-digth here is like the el margen donde se pueden poner cosas en un A4*/
+    max-width: 1700px;
+    margin: auto;
+}
+.main-nav {
+    float: left;
+    list-style: none;
+    margin-top: 200px;
+    margin-left: 200px;
+}
+.main-nav li {
+    /* this make all the integrants of the list at the same line */
+    display: inline-block;
+}
+.main-nav li a {
+    /* change the color font of the list, letting space between them and chose a font family */
+    color: white;
+    text-decoration: none;
+    padding: 5px 80px;
+    font-family: "Roboto", sans-serif;
+    font-size: 30px;
+}
+
+.main-nav li.active a {
+    /* Making a white border on every element of the list(HOME, SERVICES,etc) */
+    border: 1px solid white;
+}
+.main-nav li a:hover {
+    /* Making a white border on every element of the list(HOME, SERVICES,etc) when the cursor is above */
+    border: 1px solid white;
+}
+h1 {
+    color: white;
+    text-transform: uppercase;
+    font-size: 50px;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 10px;
+}
