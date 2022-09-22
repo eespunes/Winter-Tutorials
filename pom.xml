@@ -81,7 +81,7 @@ https://mvnrepository.com/artifact/org.openweathermap.java-api/api-common ">
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>9.4-1206-jdbc42</version>
+            <version>42.3.7</version>
         </dependency>
         <dependency>
             <groupId>com.github.rjeschke</groupId>
